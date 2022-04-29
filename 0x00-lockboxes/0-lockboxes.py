@@ -1,26 +1,31 @@
 #!/usr/bin/python3
-
 """
-Function to unlocked box of lists
+Task 0: Lockboxes
 """
-
 
 
 def canUnlockAll(boxes):
     """
-    Check if all boxen can be opened
+    Determines if all boxes can be opened
     """
-    box_unloked = [0]
-    
-    for box_index, in_box in enumerate(boxes):
-        if not in_box:
-            continue
+    if boxes == None or len(boxes) == 0:
+        return False
 
-        for value in in_box:
-            if value < len(boxes) and value not in box_unloked:
-                if value != box_index:
-                    box_unloked.append(value)
+    status = ["T"]
 
-    if len(box_unloked) == len(boxes):
-        return True
-    return False
+    for box in range(1, len(boxes)):
+        status.append("F")
+
+    for box in range(0, len(boxes)):
+        if (status[box] == "T" or box == 0):
+            for key in boxes[box]:
+                if int(key) < len(boxes) and status[key] == "F":
+                    for k in boxes[key]:
+                        if k < len(boxes):
+                            status[k] = "T"
+                if key < len(boxes):
+                    status[key] = "T"
+
+    if "F" in status:
+        return False
+    return True
