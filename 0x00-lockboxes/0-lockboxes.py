@@ -9,7 +9,7 @@ def canUnlockAll(boxes):
     """
     Determines if all boxes can be opened
     """
-    if boxes == None or len(boxes) == 0:
+    if boxes is None or len(boxes) is 0:
         return False
 
     status = ["T"]
@@ -18,9 +18,9 @@ def canUnlockAll(boxes):
         status.append("F")
 
     for box in range(0, len(boxes)):
-        if (status[box] == "T" or box == 0):
+        if (status[box] is "T" or box is 0):
             for key in boxes[box]:
-                if int(key) < len(boxes) and status[key] == "F":
+                if int(key) < len(boxes) and status[key] is "F":
                     for k in boxes[key]:
                         if k < len(boxes):
                             status[k] = "T"
