@@ -7,8 +7,11 @@ Function to unlocked box of lists
 
 
 def canUnlockAll(boxes):
+    """
+    Check if all boxen can be opened
+    """
     box_unloked = [0]
-
+    
     for box_index, in_box in enumerate(boxes):
         if not in_box:
             continue
