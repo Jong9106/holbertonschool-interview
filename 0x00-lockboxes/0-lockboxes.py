@@ -5,6 +5,7 @@ Function to unlocked box of lists
 """
 
 
+
 def canUnlockAll(boxes):
     box_unloked = [0]
 
